@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // class car{
+        //     constructor(brand,color,price){
+        //     this.brand=brand;
+        //     this.color=color;
+        //     this.price=price;
+        //     }
+        //     print(){
+        //         console.log(this.brand,this.color,this.price);
+        //     }
+        // }   
+        // let carobj=new car("Thar","black","90,000");
+        // let carobj1=new car("BMW","black","90,000");
+        // let carobj2=new car("Thar","black","90,000");
+        // let carobj3=new car("Thar","black","90,000")
+        // carobj.print();
+        // carobj1.print();
+        class person{
+            #gender=""
+            constructor(name,surname,gender){
+                this.name=name;
+                this.#gender=gender;
+                this.surname=surname;
+            }
+            print(){
+                console.log(this.name,this.surname,this.#gender);
+            }
+            
+        }
+        class she extends person{
+            constructor(name,surname,grade,gender){
+                super(name,surname,gender);
+
+
+                this.grade=grade;
+            }
+            printgrade(){
+                console.log(this.grade)
+            }
+         }
+        const sazina=new she("sazina","lohani",10,"Female");
+        const Ash=new she("Ash","Bhandari",10);
+        
+        sazina.print();
+        Ash.print();
+
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marks Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f7f7f7;
+    }
+    .container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    .subject-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .subject-row input {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      flex: 1;
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .add-btn {
+      background: #3498db;
+      color: white;
+    }
+    .calc-btn {
+      background: #2ecc71;
+      color: white;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f1f1f1;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Marks Calculator</h2>
+    <div id="subjects">
+      <div class="subject-row">
+        <input type="text" placeholder="Subject Name" class="subject">
+        <input type="number" placeholder="Marks (0-100)" class="marks" min="0" max="100">
+      </div>
+    </div>
+    <button class="add-btn" onclick="addSubject()">+ Add Subject</button>
+    <button class="calc-btn" onclick="calculate()">Calculate</button>
+
+    <div class="result" id="result"></div>
+  </div>
+<script>
+      function addSubject() {
+        const subjectdiv = document.getElementById("subjects");
+        const newrow = document.createElement("div");
+        newrow.classList.add("subject-row");
+
+        newrow.innerHTML = ` <input type="text" placeholder="Subject Name" class="subject" />
+           <input
+            type="number"
+            placeholder="Marks (0-100)"
+            class="marks"
+            min="0"
+            max="100"
+          />
+        `;
+
+        // let subinput = document.createElement("input");
+        // let marksinput = document.createElement("input");
+        // subinput.setAttribute("class", "subject");
+        // subinput.setAttribute("type", "text");
+        // subinput.setAttribute("placeholder", "Subject Name");
+        // marksinput.setAttribute("class", "marks");
+        // marksinput.setAttribute("type", "number");
+        // marksinput.setAttribute("placeholder", "Marks (0-100)");
+        // marksinput.setAttribute("min", "0");
+        // marksinput.setAttribute("max", "100");
+        // newrow.appendChild(subinput);
+        // newrow.appendChild(marksinput);
+
+        subjectdiv.appendChild(newrow);
+      }
+
+      // filter , map , reduce , forEach
+
+      function calculate() {
+        let marks = document.querySelectorAll(".marks");
+        let obtainedmarks = 0;
+        let result = "Pass";
+        // marks.forEach(
+        //   (mark) => (obtainedmarks = obtainedmarks + Number(mark.value))
+        // );
+        marks.forEach(function (mark) {
+          obtainedmarks = obtainedmarks + Number(mark.value);
+        });
+
+        Array.from(marks).some(function (mark) {
+          if (Number(mark.value) < 40) {
+            result = "Fail";
+            return true;
+          }
+        });
+
+        let percentage;
+        let resultdiv = document.getElementById("result");
+
+        if (result === "Fail") {
+          resultdiv.innerHTML = `<p>Total marks is ${obtainedmarks}</p>
+            <p>Result is ${result}</p>
+        
+
+        `;
+        } else {
+          percentage = obtainedmarks / marks.length;
+
+          resultdiv.innerHTML = `<p>Total marks is ${obtainedmarks}</p>
+          <p>Percentage is ${percentage}%</p>
+            <p>Result is ${result}</p>
+        `;
+        }
+      }
+    </script>
+</body>
+</html>

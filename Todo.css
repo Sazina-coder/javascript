@@ -1,0 +1,8 @@
+.todolist{
+    display:flex ;
+    /* color: white;
+    gap: 10px;
+    padding:20px ;
+    width: fit-content; */
+    background-color: red;
+}

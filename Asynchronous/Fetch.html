@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .card{
+        width: 200px;
+        height: 35vh;
+    border: 1px solid black;
+    border-radius: 20px;
+     box-shadow: 0 0 30px 10px rgb(108, 108, 108);
+    }
+    h1,p{
+        text-align: center;
+        font-size: 10px;
+        margin-top: 0px;
+    }
+   img{
+    width: 90%;
+    height:20vh;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 10px;
+   }
+   button{
+    width: 90%;
+    background-color: green;
+    color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+   }
+   
+</style>
+<body>
+    <div class="container">
+
+         
+        </div>
+
+        <script>
+         const fetchPromise=fetch("https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json");
+         fetchPromise.then((res) => {
+         return res.json();
+         })
+         .then((value)=>{
+         createUI(value);
+         })
+         .catch((err)=>{
+           const products=document.querySelector(".container");
+           products.innerHTML="Error";
+         })
+          function createUI(data){
+            const products=document.querySelector(".container");
+             let div1="";
+
+              data.forEach((product) => {
+             div1+=`
+                  <div class="container">
+
+
+        <div class="card">
+            <div class="img_card">
+                <img src="${product.img}" alt="">
+            </div>
+            <div class="Detail">
+                <h1 >${product.name}</h1>
+                <p>${product.price}</p>
+                <P>${product.type}</p>
+                <button>Add to cart</button>
+            </div>
+        </div>
+         
+        </div>
+              
+                `;
+                products.innerHTML=div1;
+              });
+          }
+
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>switch</title>
+</head>
+<body>
+    <script> 
+        function calculator(operator,number1,number2){
+            let result;
+            switch (operator){
+                case "+":
+                    result= number1+number2;
+                    break;
+                case "-":
+                    result= number1-number2;
+                    break;
+                case "/":
+                       if(number2==0)
+                       {
+                        result ="not divisible by 0";
+                       }
+                       else{
+                        result= result=number1/number2;
+                       }
+                    break;
+                case "*":
+                    result=number1*number2;
+                    break;
+                 default:
+                    result="incorrect";
+            }
+       return(result);
+        }
+
+    console.log(calculator("+",12,15));
+    console.log(calculator("-",20,10));
+    console.log(calculator("/",20,0));
+    console.log(calculator("*",4,5));
+    </script>
+</body>
+</html>

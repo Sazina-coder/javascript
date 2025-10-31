@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee</title>
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 20px
+         }
+         .container{
+            display:  flex;
+            width: 100%;
+            background: linear-gradient(to right, rgb(67, 67, 67), white);
+         }
+         .head{
+        padding-left:20px ;
+        width: 30%;
+        color: white;
+       
+         }
+         .head h1,
+        .head p {
+        margin: 0;
+        padding: 0;
+        line-height: 1.5;
+        }
+        .searchbar{
+          display: flex; 
+          width: 40%; 
+          justify-content: center;
+          align-items: center;
+        }
+        .roles{
+            width: 30%;
+           padding-top:20px ;
+           margin-left: 80px;
+        }
+        .add_container{
+            display: flex;
+            width: 90%;
+            height: 40vh;
+            margin-left: 30px;
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 0 30px 10px grey;
+            justify-content: center;   
+            align-items: center;       
+            gap: 10px;  
+        }
+        
+          .add_container{
+            display: flex;
+            width: 90%;
+            height: 40vh;
+            margin-left: 30px;
+            margin-top: 40px;
+            padding: 20px;
+            border-radius: 30px;
+            box-shadow: 0 0 30px 10px rgb(187, 183, 183);
+            justify-content: center;   
+            align-items: center;       
+            gap: 10px;  
+        }
+        .add_container input{
+         padding: 20px;
+        margin-right: 80px;
+        border: 2px solid black;
+        background-color: gray;
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        }
+        .add_container ::placeholder{
+            color: white;
+        }
+        .searchbar ::placeholder{
+            color: black;
+            font-size: 16px;
+        }
+        .add_container button{padding: 20px;
+        margin-right: 80px;
+        border: 2px solid black;
+        background-color: rgb(16, 27, 11);
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+    }
+    button:hover{
+    background-color: green;
+    color: white;
+    }
+      #small { 
+    font-size:12px; 
+    color:#555; 
+    margin-top:6px; 
+  }
+  #salary{
+    width: 20%;
+    text-align: center; 
+   padding: 5px;
+    border:none; border-radius: 10px;
+     background-color: rgb(85, 84, 84);
+     color: white;
+    margin-top: 40px;
+    margin-right: 80px;
+    float: right;
+  }
+    </style>
+</head>
+<body>
+      <p id="message" style="text-align: cen
+      ter; font-size: 20px; font-family: Arial, Helvetica, sans-serif;"></p>
+    <div class="container">
+        <div class="head">
+            <h1>Employee Portal</h1>
+            <p>Manage staff, roles, and salaries easily.</p>
+        </div>
+        <div class="searchbar">
+             <input type="search" name="" id="search" placeholder="Search employee" style="height: 5vh; width: 100%;">
+             <button onclick="search()">
+                <img src="magnifying-glass.png" alt="search" style="height:4vh; width: 100%; border: none;">
+             </button>
+             <div id="small"></div>
+        </div>
+        <div class="roles">
+        <select id="Roles" style="text-align: center; width: 80%;padding: 5px; border:none; border-radius: 10px; background-color: rgb(85, 84, 84);color: white;">
+            <option value="all">All Roles</option>
+            <option value="Admin">Admin</option>
+            <option value="Developer">Developer</option>
+            <option value="Designer">Designer</option>
+            <option value="tester">Tester</option>
+            <option value="Hr">Hr</option>
+       </select>
+        </div>
+        
+    </div>
+    <div class="add_container" >
+      <input type="text" id="emp_name" placeholder="Name of Employee" style="padding: 20px;">
+      <input type="text" id="emp_role" placeholder="Role of Employee">
+      <input type="text" id="emp_salary" placeholder="Salary of Employee">
+      <button class="btn" onclick="addEmployee()">+Add Employee</button>
+    </div>
+    <div class="Salary_div">
+ <select id="salary">
+  <option value="choose">Choose</option>
+  <optgroup label="Minimum Salary">
+    <option>10000</option>
+    <option>20000</option>
+    <option>30000</option>
+  </optgroup>
+  <optgroup label="Maximum Salary">
+    <option>40000</option>
+    <option>50000</option>
+  </optgroup>
+</select>
+
+    </div>
+    <ul id="Employee_List"></ul>
+</body>
+<script src="employee.js"></script>
+</html>

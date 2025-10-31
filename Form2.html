@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+     body {
+    font-family: Arial;
+    font-weight: bold;
+    background:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to top, #602931, #fdfcfc);
+  }
+
+  .container {
+    background:white;
+    padding: 70px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgb(11, 10, 10);
+    width: 380px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #4b2b2b;
+  }
+
+  p {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #502626;
+  }
+  input::placeholder {
+  color: rgb(119, 99, 102);  
+  } 
+
+
+  label {
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #492626;
+    font-size: 16px;
+  }
+
+  input{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #401a1a;
+    border-radius: 5px;
+  }
+
+ input[type="radio"] {
+  margin-right: 8px; 
+  margin-top: 0px;
+  margin-left: -5px;
+  width: 20px;
+}
+
+  button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background: #291313;
+    color: rgb(245, 216, 216);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size:20px;
+    font-weight: bold;
+  }
+
+  button:hover {
+    background: #d2cbcb;
+    color: #4e1c1c;
+  }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Register Now</h2>
+    <p>Please enter your information below.</p>
+    <div class="form_div">
+      <form id="registration_form">
+       <label>Name*:</label>
+       <input type="text" id="name" placeholder="Enter Your Name">
+       <div id="nameError"></div>
+       <label>Email*:</label>
+       <input type="text" id="email" placeholder="xyz@gmail.com">
+       <div id="emailError"></div>
+       <label >Password*:</label>
+       <input type="text" id="password" placeholder="*******">
+       <div id="passwordError"></div>
+       <label>Phone*:</label>
+       <input type="number" id="phone" placeholder="Enter Your Number">
+       <div id="phoneError"></div>
+       <label>Gender*:</label>
+       <input type="radio" id="female" name="gender">
+       <label for="female">Female</label><br>
+       <input type="radio" id="male" name="gender">
+       <label for="male">Male</label><br>
+       <div id="genderError"></div>
+       <button type="submit" id="btn" onclick="form_submit(event)" >Submit</button>
+    </form>
+
+    <div id="success"></div>
+    </div>
+</div>
+<script>
+    
+  const form = document.getElementById("registerForm");
+
+  const name = document.getElementById("name");
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+  const phone = document.getElementById("phone");
+  const male = document.getElementById("male");
+    const female = document.getElementById("female");
+  const name_error=document.getElementById("nameError");
+  const email_error=document.getElementById("emailError");
+  const password_error=document.getElementById("passwordError");
+  const phone_error=document.getElementById("phoneError");
+  const gender_error=document.getElementById("genderError");
+  const success=document.getElementById("success");
+   
+ function form_submit(e){
+  e.preventDefault();
+  console.log("sdhg")
+ let reply=true;
+  if(name.value==="") {
+    name_error.textContent="Error name"
+    reply=false;
+  }
+ if (email===""||!email.includes("@")||!email.includes(".com")){
+  // console.log(email)
+   email_error.textContent="Error email"
+   reply=false;
+ }
+ if(password===""||password.length<8|| password.toLowerCase()===password|| password.toUpperCase()===password){
+  password_error.textContent="Error password"
+  reply=false;
+ }
+ if(phone.value.length!==10||String(phone.value)==""){
+  phone_error.textContent="Error number"
+  reply=false
+ }
+
+ if(!male.checked&&!female.checked){
+  gender_error.textContent="Gender error"
+  reply=false;
+ }
+
+ if (reply===true){
+  sucess.textContent="Your form is submitted" 
+ }
+ }
+
+
+
+</script>
+</body>
+</html>

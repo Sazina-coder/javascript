@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text" name="weather" id="city">
+        <button onclick="btn()">Search</button>
+        <div id="result"></div>
+    </div>
+</body>
+<script>
+    const weatherData = {
+  "Kathmandu": "☀ Sunny, 25°C",
+  "Pokhara": "🌧 Rainy, 20°C",
+  "Biratnagar": "⛅ Cloudy, 28°C",
+  "Lalitpur": "🌤 Partly Sunny, 24°C",
+  "New York": "🌧 Thunderstorms, 18°C",
+  "London": "🌦 Light Rain, 15°C",
+  "Tokyo": "☀ Clear, 27°C",
+  "Paris": "⛅ Cloudy, 20°C",
+  "Sydney": "🌤 Partly Sunny, 23°C",
+  "Dubai": "🔥 Hot, 38°C",
+  "Moscow": "❄ Snowy, -5°C",
+  "Toronto": "🌨 Snow Showers, -2°C",
+  "Rio de Janeiro": "🌴 Humid & Hot, 30°C",
+  "Beijing": "🌫 Smoggy, 22°C",
+  "Cape Town": "🌬 Windy, 19°C"
+};
+function fetchweather(city){
+    return new Promise(function(resolve,reject){
+        setTimeout(function(){
+
+            if (weatherData[city]){
+                resolve(weatherData[city]);
+            }
+            else reject("Not given");
+            },2000);
+        })
+}
+
+function btn(){
+    let searchvalue=document.getElementById("city").value;
+   let result=document.getElementById("result");
+   result.innerHTML="fetching data";
+  fetchweather(searchvalue)
+.then((arr)=>{
+result.innerHTML=arr;
+})
+.catch((err)=>{
+    console.log(err);
+    result.innerHTML=err;
+})
+}
+</script>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>object</title>
+</head>
+<body>
+    <script>
+        const car={
+            Brand:"TOYOTO",
+            price:"6 crore",
+            color:"Black",
+            Seater:"4seater",
+            name:function(){
+                return this.Brand+" "+this.price+" "+this.color+" "+ this.Seater; 
+            },
+
+            run:function(){
+                return "This car is not running";
+            }
+        }
+        console.log(car.name());
+        console.log(car.run());
+
+    </script>
+</body>
+</html>

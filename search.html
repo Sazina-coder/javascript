@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <style>
+    body {
+    display: flex;
+    align-items: center;
+      justify-content: center;
+      font-family: Arial;
+      padding: 20px;
+      background:white;
+    }
+
+    .container {
+      margin-bottom: 20px;
+     
+    }
+
+    input {
+      width: 400px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid rgb(0, 0, 0);
+      opacity: 2px;
+      
+    }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input type="text" id="searchbar" placeholder="Search Here">
+  </div>
+  <div class="searched" id="found"></div>
+  <button onclick="search_btn()">Search</button>
+</body>
+<script src="search.js"></script>
+</html>
